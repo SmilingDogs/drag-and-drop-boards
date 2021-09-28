@@ -9,7 +9,7 @@ body {
   font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
-  background: url("samuel-ferrara-1527pjeb6jg-unsplash.jpg") no-repeat center;
+  background: url("https://images.unsplash.com/photo-1472214103451-9374bd1c798e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80") no-repeat center;
   background-size: cover;
 
 }
