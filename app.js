@@ -1,30 +1,32 @@
 const items = document.querySelectorAll(".item");
 let itemsQty = document.querySelectorAll(".item").length;
-const boards = document.querySelectorAll(".board");
+const boards = document.querySelectorAll(".board:not(:last-child)");
 const create = document.getElementById("create");
 const startBoard = document.getElementById("start");
-const crosses = document.querySelectorAll("span")
+const crosses = document.querySelectorAll("span");
 
 create.addEventListener("click", () => {
+  let text = prompt("Enter new task");
 
-  const newItem = document.createElement("p");
-  newItem.className = "item";
-  newItem.draggable = "true";
-  newItem.innerText = prompt('Enter new task')
-  const cross = document.createElement("span")
-  cross.innerHTML = `&times`;
-  newItem.append(cross)
+  if (text) {
+    const newItem = document.createElement("p");
+    newItem.className = "item";
+    newItem.draggable = "true";
+    newItem.innerText = text;
+    const cross = document.createElement("span");
+    cross.innerHTML = `&times`;
+    newItem.append(cross);
 
-  cross.addEventListener("click", (e) => {
-    e.target.parentElement.remove()
-  })
-  
-  startBoard.append(newItem);
+    cross.addEventListener("click", (e) => {
+      e.target.parentElement.remove();
+    });
 
-  newItem.addEventListener("dragstart", dragStart);
-  newItem.addEventListener("dragend", dragEnd);
-  itemsQty++;
+    startBoard.append(newItem);
 
+    newItem.addEventListener("dragstart", dragStart);
+    newItem.addEventListener("dragend", dragEnd);
+    itemsQty++;
+  }
 });
 
 items.forEach((item) => {
@@ -32,11 +34,11 @@ items.forEach((item) => {
   item.addEventListener("dragend", dragEnd);
 });
 
-crosses.forEach(cross => {
+crosses.forEach((cross) => {
   cross.addEventListener("click", (e) => {
-    e.target.parentElement.remove()
-  })
-})
+    e.target.parentElement.remove();
+  });
+});
 
 boards.forEach((board) => {
   board.addEventListener("dragover", (e) => {
@@ -76,6 +78,7 @@ function dragStart(e) {
 function dragEnd(e) {
   e.target.classList.remove("moving");
   if (e.target.parentElement.id === "start") e.target.classList.add("start");
-  else if (e.target.parentElement.id === "running") e.target.classList.add("running");
+  else if (e.target.parentElement.id === "running")
+    e.target.classList.add("running");
   else e.target.classList.add("finish");
 }
