@@ -63,6 +63,9 @@ body {
   right: 3px;
   font-size: 25px;
 }
+.item span:hover {
+  cursor:default;
+}
 .item.moving {
   opacity: 0.5;
   border: 5px solid #fff;
