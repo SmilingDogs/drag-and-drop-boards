@@ -7,26 +7,7 @@ const crosses = document.querySelectorAll("span");
 
 create.addEventListener("click", () => {
   let text = prompt("Enter new task");
-
-  if (text) {
-    const newItem = document.createElement("p");
-    newItem.className = "item";
-    newItem.draggable = "true";
-    newItem.innerText = text;
-    const cross = document.createElement("span");
-    cross.innerHTML = `&times`;
-    newItem.append(cross);
-
-    cross.addEventListener("click", (e) => {
-      e.target.parentElement.remove();
-    });
-
-    startBoard.append(newItem);
-
-    newItem.addEventListener("dragstart", dragStart);
-    newItem.addEventListener("dragend", dragEnd);
-    itemsQty++;
-  }
+  text && createTask(text);
 });
 
 items.forEach((item) => {
@@ -81,4 +62,23 @@ function dragEnd(e) {
   else if (e.target.parentElement.id === "running")
     e.target.classList.add("running");
   else e.target.classList.add("finish");
+}
+
+function createTask(text) {
+  const newItem = document.createElement("p");
+  newItem.className = "item";
+  newItem.draggable = "true";
+  newItem.innerText = text;
+  const cross = document.createElement("span");
+  cross.innerHTML = `&times`;
+  newItem.append(cross);
+
+  cross.addEventListener("click", (e) => {
+    e.target.parentElement.remove();
+  });
+
+  startBoard.append(newItem);
+  newItem.addEventListener("dragstart", dragStart);
+  newItem.addEventListener("dragend", dragEnd);
+  itemsQty++;
 }

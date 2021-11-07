@@ -57,13 +57,14 @@ body {
   border: 5px solid grey;
   cursor: move;
   position: relative;
-  font-weight: 500;
+  font-weight: 600;
 }
 .item span {
   position: absolute;
   top: -7px;
   right: 3px;
   font-size: 25px;
+  font-weight: normal;
 }
 .item span:hover {
   cursor:default;
