@@ -16,10 +16,11 @@ body {
 }
 .title {
   text-align: center;
+  margin-top: 5rem;
 }
 .container {
   margin: 0 auto;
-  margin-top: 1rem;
+  margin-top: 5rem;
   width: 800px;
   display: flex;
   justify-content: space-between;
@@ -56,6 +57,7 @@ body {
   border: 5px solid grey;
   cursor: move;
   position: relative;
+  font-weight: 500;
 }
 .item span {
   position: absolute;
